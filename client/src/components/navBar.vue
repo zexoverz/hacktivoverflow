@@ -29,7 +29,8 @@
             <router-link to="/register" class="nav-link" v-if="!isLogin">Register</router-link>
           </li>
         </ul>
-        <span class="btn btn-danger" v-if="isLogin">Logout</span>
+        <!-- <span href="#" v-if="isLogin">Logout</span> -->
+        <a href="#" class="nav-link text-white" v-if="isLogin">Logout</a>
       </div>
     </div>
   </nav>

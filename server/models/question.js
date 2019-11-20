@@ -17,10 +17,8 @@ const questionSchema = new Schema({
         ref: "User"
     },
     answers: [{
-        _id: {
-            type: Schema.Types.ObjectId,
-            ref: "Answer"
-        }
+        type: Schema.Types.ObjectId,
+        ref: "Answer"
     }]
 
 })

@@ -4,17 +4,17 @@
       <div class="col-lg-4 col-md-6 ml-auto mr-auto">
         <div class="card card-login">
           <form class="form" method action>
-            <div class="card-header card-header-primary text-center">
+            <div class="card-header card-header-success text-center">
               <h4 class="card-title">Login</h4>
               <div class="social-line">
                 <a href="#pablo" class="btn btn-just-icon btn-link">
-                  <i class="fa fa-facebook-square"></i>
+                  <i class="fab fa-facebook-square"></i>
                 </a>
                 <a href="#pablo" class="btn btn-just-icon btn-link">
-                  <i class="fa fa-twitter"></i>
+                  <i class="fab fa-twitter"></i>
                 </a>
                 <a href="#pablo" class="btn btn-just-icon btn-link">
-                  <i class="fa fa-google-plus"></i>
+                  <i class="fab fa-google-plus"></i>
                 </a>
               </div>
             </div>
@@ -23,7 +23,7 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="material-icons">mail</i>
+                    <i class="fas fa-envelope"></i>
                   </span>
                 </div>
                 <input type="email" class="form-control" v-model="email" placeholder="Email..." />
@@ -31,7 +31,7 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
-                    <i class="material-icons">lock_outline</i>
+                    <i class="fas fa-lock"></i>
                   </span>
                 </div>
                 <input
@@ -43,7 +43,11 @@
               </div>
             </div>
             <div class="footer text-center">
-              <a href="#" class="btn btn-primary btn-link btn-wd btn-lg" @click="loginEvent">Submit</a>
+              <a
+                href="#"
+                class="btn btn-success btn-link btn-wd btn-lg text-white"
+                @click="loginEvent"
+              >Submit</a>
             </div>
           </form>
         </div>

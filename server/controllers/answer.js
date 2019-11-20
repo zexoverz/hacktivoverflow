@@ -7,11 +7,14 @@ class AnswerController {
             upVotes: [],
             downVotes: [],
             userId: req.user.id,
-            questionId: req.body.questionId
+            questionId: req.body.questionId,
+            author: req.body.author
         }).then(answer => {
-            return Question.findByIdAndUpdate(req.body.questionId, {
+            return Question.findByIdAndUpdate({
+                _id: answer.questionId
+            }, {
                 $push: {
-                    answers: answer.id
+                    answers: answer._id
                 }
             })
         }).then(result => {

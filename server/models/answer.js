@@ -18,7 +18,8 @@ const answerSchema = new Schema({
     questionId: {
         type: Schema.Types.ObjectId,
         ref: "Question"
-    }
+    },
+    author: String
 })
 
 const Answer = mongoose.model("Answer", answerSchema)

@@ -98,7 +98,7 @@ export default new Vuex.Store({
     login(context, payload) {
       return axios({
         method: "post",
-        url: "http://localhost:3000/user/login",
+        url: "http://54.251.141.239/user/login",
         data: payload
       })
     },
@@ -106,7 +106,7 @@ export default new Vuex.Store({
     register(context, payload) {
       return axios({
         method: "post",
-        url: "http://localhost:3000/user/register",
+        url: "http://54.251.141.239/user/register",
         data: payload
       })
     },
@@ -114,7 +114,7 @@ export default new Vuex.Store({
     create(context, payload) {
       return axios({
         method: "post",
-        url: "http://localhost:3000/question",
+        url: "http://54.251.141.239/question",
         data: payload,
         headers: {
           token: localStorage.getItem("token")
@@ -127,7 +127,7 @@ export default new Vuex.Store({
     }) {
       axios({
         method: "get",
-        url: "http://localhost:3000/question"
+        url: "http://54.251.141.239/question"
       }).then(response => {
         commit("SET_QUESTIONS", response.data)
       }).catch(err => {
@@ -140,7 +140,7 @@ export default new Vuex.Store({
     }, payload) {
       axios({
         method: "get",
-        url: `http://localhost:3000/question/${payload}`
+        url: `http://54.251.141.239/question/${payload}`
       }).then(response => {
         commit("SET_DETAIL_QUESTION", response.data);
       }).catch(err => {
@@ -152,7 +152,7 @@ export default new Vuex.Store({
       let id = payload.questionId;
       axios({
         method: "post",
-        url: `http://localhost:3000/answer`,
+        url: `http://54.251.141.239/answer`,
         data: {
           description: payload.description,
           questionId: payload.questionId,
@@ -171,7 +171,7 @@ export default new Vuex.Store({
     questionUp(context, payload) {
       return axios({
         method: "patch",
-        url: `http://localhost:3000/question/upVote/${payload}`,
+        url: `http://54.251.141.239/question/upVote/${payload}`,
         headers: {
           token: localStorage.getItem("token")
         }
@@ -181,7 +181,7 @@ export default new Vuex.Store({
     questionDown(context, payload) {
       return axios({
         method: "patch",
-        url: `http://localhost:3000/question/downVote/${payload}`,
+        url: `http://54.251.141.239/question/downVote/${payload}`,
         headers: {
           token: localStorage.getItem("token")
         }
@@ -191,7 +191,7 @@ export default new Vuex.Store({
     answerUp(context, payload) {
       return axios({
         method: "patch",
-        url: `http://localhost:3000/answer/upVote/${payload}`,
+        url: `http://54.251.141.239/answer/upVote/${payload}`,
         headers: {
           token: localStorage.getItem("token")
         }
@@ -201,7 +201,7 @@ export default new Vuex.Store({
     answerDown(context, payload) {
       return axios({
         method: "patch",
-        url: `http://localhost:3000/answer/downVote/${payload}`,
+        url: `http://54.251.141.239/answer/downVote/${payload}`,
         headers: {
           token: localStorage.getItem("token")
         }
@@ -211,7 +211,7 @@ export default new Vuex.Store({
     deleteQuestion(context, payload) {
       return axios({
         method: "delete",
-        url: `http://localhost:3000/question/${payload}`,
+        url: `http://54.251.141.239/question/${payload}`,
         headers: {
           token: localStorage.getItem("token")
         }
@@ -221,7 +221,7 @@ export default new Vuex.Store({
     updateQuestion(context, payload) {
       return axios({
         method: "put",
-        url: `http://localhost:3000/question/${payload.id}`,
+        url: `http://54.251.141.239/question/${payload.id}`,
         data: {
           title: payload.title,
           description: payload.description
@@ -234,7 +234,7 @@ export default new Vuex.Store({
     updateAnswer(context, payload) {
       return axios({
         method: "put",
-        url: `http://localhost:3000/answer/${payload.id}`,
+        url: `http://54.251.141.239/answer/${payload.id}`,
         data: {
           description: payload.description
         },

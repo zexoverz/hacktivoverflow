@@ -10,10 +10,19 @@
     </div>
     <div class="container text-left mt-5" v-for="question in questions" :key="question._id">
       <div class="card card-nav-tabs">
-        <div class="card-header card-header-success" id="headerCard">Featured</div>
+        <div class="card-header card-header-success" id="headerCard">
+          <div class="row">
+            <img
+              :src="'https://api.adorable.io/avatars/' + question.userId._id"
+              class="pl-3 mt-3"
+              height="40px"
+            />
+            <h3 class="pl-3">{{question.userId.name}}</h3>
+          </div>
+        </div>
         <div class="card-body">
           <h4 class="card-title">{{question.title}}</h4>
-          <p class="card-text">{{question.description.slice(0,60) + '...'}}</p>
+          <p class="card-text" v-html="question.description.slice(0,100) + '...'"></p>
           <button class="btn btn-success" @click="detailEvent(question._id)">Go to Question</button>
         </div>
       </div>

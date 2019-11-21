@@ -73,13 +73,23 @@ export default {
         password: this.password
       };
 
-      this.$store.dispatch("login", obj).then(response => {
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("username", response.data.name);
-        this.$store.commit("SET_LOGIN");
-        this.$router.push("/");
-        Swal.fire("Good job!", "Login Success", "success");
-      });
+      this.$store
+        .dispatch("login", obj)
+        .then(response => {
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("username", response.data.name);
+          localStorage.setItem("id", response.data.id);
+          this.$store.commit("SET_LOGIN");
+          this.$router.push("/");
+          Swal.fire("Good job!", "Login Success", "success");
+        })
+        .catch(() => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!"
+          });
+        });
     }
   }
 };

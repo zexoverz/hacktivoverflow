@@ -30,16 +30,40 @@
           </li>
         </ul>
         <!-- <span href="#" v-if="isLogin">Logout</span> -->
-        <a href="#" class="nav-link text-white" v-if="isLogin">Logout</a>
+        <img :src="'https://api.adorable.io/avatars/' + isLogin" height="40px" v-if="isLogin" />
+        <h4 class="pl-3 mr-5" v-if="isLogin">{{nameLogin}}</h4>
+        <a href="#" class="nav-link text-white mt-1" v-if="isLogin" @click="logoutEvent">Logout</a>
       </div>
     </div>
   </nav>
 </template>
 
 <script>
+import Swal from "sweetalert2";
 import { mapState } from "vuex";
 export default {
-  computed: mapState(["isLogin"])
+  computed: mapState(["isLogin", "nameLogin"]),
+  methods: {
+    logoutEvent() {
+      Swal.fire({
+        title: "Are you sure to logout ?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes"
+      }).then(result => {
+        if (result.value) {
+          localStorage.removeItem("token");
+          localStorage.removeItem("username");
+          localStorage.removeItem("id");
+          this.$store.commit("SET_LOGIN");
+          Swal.fire("Good job!", "Logout Success", "success");
+          this.$router.push("/");
+        }
+      });
+    }
+  }
 };
 </script>
 

@@ -16,7 +16,7 @@
       <div class="form-group col-md-8">
         <h3>Description</h3>
         <div class="wysiwyg">
-          <wysiwyg v-model="myHTML" style="height: 300px; border-color: black;" />
+          <wysiwyg v-model="myHTML" style="height: 100%; border-color: black;" />
         </div>
 
         <button class="btn btn-success mt-4" @click="createEvent">Submit</button>

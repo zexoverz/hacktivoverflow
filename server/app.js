@@ -1,6 +1,7 @@
 if (process.env.NODE_ENV == 'development') {
     require('dotenv').config()
 }
+const cronMail = require("./helpers/cronMail");
 
 require('./config/mongoose')
 const express = require('express')
@@ -11,6 +12,7 @@ const errorHandler = require('./middlewares/errorhandler')
 const router = require('./routes/index')
 const app = express()
 
+cronMail();
 app.use(cors())
 app.use(express.urlencoded({
     extended: false

@@ -3,6 +3,7 @@ const Question = require("../models/question");
 class QuestionController {
     static getAll(req, res, next) {
         Question.find()
+            .populate("userId")
             .then(questions => {
                 res.status(200).json(questions);
             }).catch(next)
